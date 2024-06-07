@@ -1,0 +1,23 @@
+Crie um script PHP que define duas variáveis com números e exibe a
+soma desses números. Modifique o script para também calcular e exibir a
+subtração, multiplicação e divisão dos dois números.
+
+<?php
+$numero1 = 10;
+$numero2 = 5;
+echo "Soma: " . ($numero1 + $numero2) . "<br>";
+echo "Subtração: " . ($numero1 - $numero2) . "<br>";
+echo "Multiplicação: " . ($numero1 * $numero2) . "<br>";
+echo ($numero2 != 0) ? "Divisão: " . ($numero1 / $numero2) . "<br>" : "Divisão por zero não é permitida.";
+?>
+
+Declare três variáveis para armazenar o nome de uma pessoa, a
+idade e um valor (pode ser salário ou mesada). Utilize essas variáveis para exibir
+uma mensagem formatada na tela.
+
+<?php
+$nome = "João";
+$idade = 25;
+$salario = 2500.50; // Exemplo de salário em float
+echo "Olá, meu nome é " . $nome . ". Eu tenho " . $idade . " anos e meu salário é R$ " . number_format($salario, 2, ',', '.') . ".";
+?>
