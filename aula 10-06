@@ -1,0 +1,225 @@
+1 – Escreva um algoritmo para somar dois números e multiplicar o resultado pelo primeiro número.
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Somar e Multiplicar</title>
+</head>
+<body>
+    <h1>Somar e Multiplicar</h1>
+    <form method="post">
+        <label for="num1">Digite o primeiro número:</label>
+        <input type="number" step="any" id="num1" name="num1" required><br><br>
+        <label for="num2">Digite o segundo número:</label>
+        <input type="number" step="any" id="num2" name="num2" required><br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $num1 = floatval($_POST['num1']);
+        $num2 = floatval($_POST['num2']);
+        $resultado = ($num1 + $num2) * $num1;
+        echo "<h2>O resultado é: $resultado</h2>";
+    }
+    ?>
+</body>
+</html>
+
+2 – Escreva um algoritmo que leia três números nas variáveis Val1, Val2 e Val3, calcule sua média na variável media e exiba para o usuário o resultado
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Média</title>
+</head>
+<body>
+    <h1>Calcular Média</h1>
+    <form method="post">
+        <label for="val1">Digite o primeiro número:</label>
+        <input type="number" step="any" id="val1" name="val1" required><br><br>
+        <label for="val2">Digite o segundo número:</label>
+        <input type="number" step="any" id="val2" name="val2" required><br><br>
+        <label for="val3">Digite o terceiro número:</label>
+        <input type="number" step="any" id="val3" name="val3" required><br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $val1 = floatval($_POST['val1']);
+        $val2 = floatval($_POST['val2']);
+        $val3 = floatval($_POST['val3']);
+        $media = ($val1 + $val2 + $val3) / 3;
+        echo "<h2>A média é: $media</h2>";
+    }
+    ?>
+</body>
+</html>
+
+3 – Escreva um algoritmo que receba um valor, calcule e mostre para usuário 15% deste valor.
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular 15%</title>
+</head>
+<body>
+    <h1>Calcular 15%</h1>
+    <form method="post">
+        <label for="valor">Digite um valor:</label>
+        <input type="number" step="any" id="valor" name="valor" required><br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $valor = floatval($_POST['valor']);
+        $resultado = $valor * 0.15;
+        echo "<h2>15% do valor é: $resultado</h2>";
+    }
+    ?>
+</body>
+</html>
+
+
+
+4 – Escreva um algoritmo que receba um valor, calcule e mostre para o usuário 5% e 50% deste valor.
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular 5% e 50%</title>
+</head>
+<body>
+    <h1>Calcular 5% e 50%</h1>
+    <form method="post">
+        <label for="valor">Digite um valor:</label>
+        <input type="number" step="any" id="valor" name="valor" required><br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $valor = floatval($_POST['valor']);
+        $resultado5 = $valor * 0.05;
+        $resultado50 = $valor * 0.50;
+        echo "<h2>5% do valor é: $resultado5</h2>";
+        echo "<h2>50% do valor é: $resultado50</h2>";
+    }
+    ?>
+</body>
+</html>
+
+5 – Escreva um algoritmo que leia dois números, calcule o quadrado de cada um, some os quadrados e mostre o resultado.
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Soma dos Quadrados</title>
+</head>
+<body>
+    <h1>Soma dos Quadrados</h1>
+    <form method="post">
+        <label for="num1">Digite o primeiro número:</label>
+        <input type="number" step="any" id="num1" name="num1" required><br><br>
+        <label for="num2">Digite o segundo número:</label>
+        <input type="number" step="any" id="num2" name="num2" required><br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $num1 = floatval($_POST['num1']);
+        $num2 = floatval($_POST['num2']);
+        $quadrado1 = $num1 * $num1;
+        $quadrado2 = $num2 * $num2;
+        $soma_quadrados = $quadrado1 + $quadrado2;
+        echo "<h2>A soma dos quadrados é: $soma_quadrados</h2>";
+    }
+    ?>
+</body>
+</html>
+
+6 – Escreva um algoritmo que leia a velocidade de um objeto em m/s (metros por segundo), calcule e exiba para o usuário a velocidade em km/h.
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Converter Velocidade</title>
+</head>
+<body>
+    <h1>Converter Velocidade</h1>
+    <form method="post">
+        <label for="velocidade_m_s">Digite a velocidade em m/s:</label>
+        <input type="number" step="any" id="velocidade_m_s" name="velocidade_m_s" required><br><br>
+        <button type="submit">Converter</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $velocidade_m_s = floatval($_POST['velocidade_m_s']);
+        $velocidade_kmh = $velocidade_m_s * 3.6;
+        echo "<h2>A velocidade em km/h é: $velocidade_kmh</h2>";
+    }
+    ?>
+</body>
+</html>
+
+7 – Escreva um algoritmo que leia a altura e o peso de uma pessoa, calcule o seu IMC (Índice de Massa Corporal) e exiba para o usuário.
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular IMC</title>
+</head>
+<body>
+    <h1>Calcular IMC</h1>
+    <form method="post">
+        <label for="altura">Digite sua altura em metros:</label>
+        <input type="number" step="any" id="altura" name="altura" required><br><br>
+        <label for="peso">Digite seu peso em kg:</label>
+        <input type="number" step="any" id="peso" name="peso" required><br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $altura = floatval($_POST['altura']);
+        $peso = floatval($_POST['peso']);
+        $imc = $peso / ($altura * $altura);
+        echo "<h2>Seu IMC é: $imc</h2>";
+        if ($imc < 18.5) {
+            echo "<p>Classificação: Abaixo do peso</p>";
+        } elseif ($imc >= 18.5 && $imc < 24.9) {
+            echo "<p>Classificação: Peso normal</p>";
+        } elseif ($imc >= 25 && $imc < 29.9) {
+            echo "<p>Classificação: Sobrepeso</p>";
+        } else {
+            echo "<p>Classificação: Obesidade</p>";
+        }
+    }
+    ?>
+</body>
+</html>
+
+8 – Escreva um algoritmo que receba um valor, calcule e mostre um desconto de 9%.
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Desconto de 9%</title>
+</head>
+<body>
+    <h1>Calcular Desconto de 9%</h1>
+    <form method="post">
+        <label for="valor">Digite um valor:</label>
+        <input type="number" step="any" id="valor" name="valor" required><br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $valor = floatval($_POST['valor']);
+        $desconto = $valor * 0.09;
+        $valor_com_desconto = $valor - $desconto;
+        echo "<h2>O valor com desconto de 9% é: $valor_com_desconto</h2>";
+    }
+    ?>
+</body>
+</html>
+
+
