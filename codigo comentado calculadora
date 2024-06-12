@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculadora</title>
+</head>
+<body>
+<h2>Calculadora</h2>
+<form method="post">
+Número 1: <input type="number" name="num1" required><br><br> 
+Número 2: <input type="number" name="num2" required><br><br>
+Operação:
+<select name="operacao" required>
+<option value="+">+</option>
+<option value="-">-</option>
+<option value="*">*</option>
+<option value="/">/</option>
+</select><br><br>
+<input type="submit" name="calcular" value="Calcular">
+</form>
+<?php
+//eu odeio matematica, kkkkkkkkkk só vc mesmo... tmj mari, vlw pelo mouse ☑☑☑☑☑☑
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recebe os valores dos inputs
+    $num1 = $_POST['num1']; // Primeiro número inserido pelo usuário
+    $num2 = $_POST['num2']; // Segundo número inserido pelo usuário
+    $operacao = $_POST['operacao']; // Operação selecionada pelo usuário (+, -, *, /)
+
+    $resultado = 0; // Inicializa a variável de resultado com zero
+
+    // Executa a operação aritmética com base na operação selecionada
+    if ($operacao == '+') {
+        $resultado = $num1 + $num2; // Soma os dois números
+    } elseif ($operacao == '-') {
+        $resultado = $num1 - $num2; // Subtrai o segundo número do primeiro
+    } elseif ($operacao == '*') {
+        $resultado = $num1 * $num2; // Multiplica os dois números
+    } elseif ($operacao == '/') {
+        if ($num2 != 0) {
+            $resultado = $num1 / $num2; // Divide o primeiro número pelo segundo
+        } else {
+            $resultado = 'Erro: Divisão por zero'; // Caso de divisão por zero, atribui uma mensagem de erro
+        }
+    }
+    // Exibe o resultado da operação
+    echo "<h3>O resultado da operação é: " . $resultado . "</h3>";
+}
+?>
+</body>
+</html>
