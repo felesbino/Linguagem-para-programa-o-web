@@ -1,0 +1,58 @@
+01 - Configuração Inicial
+
+1. Crie uma pasta chamada atividade_avaliativa_01 no diretório htdocs do XAMPP. ☑
+2. Abra o Visual Studio Code (VS Code) e digite o código da calculadora fornecido.☑
+3. Conecte-se ao XAMPP e inicie os serviços do Apache. ☑
+4. Teste o código da calculadora no navegador para verificar se está funcionando
+corretamente. ☑
+
+02 - Identificação e Comentários de Variáveis
+Questão: No código da calculadora:
+
+1. Identifique todas as variáveis utilizadas. 
+$num1, $num2, $operacao e $resultado
+2. Copie o código da calculadora para um novo arquivo.
+☑☑☑
+3. Comente cada variável identificada explicando seu propósito.
+$num1: Armazena o primeiro número inserido pelo usuário no formulário.
+$num2: Armazena o segundo número inserido pelo usuário no formulário.
+$operacao: Armazena a operação selecionada pelo usuário (soma, subtração, multiplicação ou divisão).
+$resultado: Armazena o resultado da operação matemática ou uma mensagem de erro no caso de divisão por zero.
+
+
+03 - Identificação de Operadores
+Questão: No código da calculadora:
+1. Identifique todos os operadores utilizados.
+==
++
+-
+*
+/
+!=
+
+2. Classifique-os como operadores aritméticos, de comparação ou de atribuição.
+
+Operadores de Atribuição:
+
+    =
+
+Operadores de Comparação:
+
+    ==
+    !=
+
+Operadores Aritméticos:
+
+    +
+    -
+    *
+    /
+
+
+04 - Identificação e Explicação de Saída de Resultado
+Questão: No código da calculadora fornecido, há uma linha que exibe o resultado da operação realizada. Identifique essa linha, identifique a variável e explique o que ela faz de forma compl
+
+linha: 
+echo "<h3>O resultado da operação é: " . $resultado . "</h3>";
+Variável: $resultado
+explicação: Essa linha de código mostra o resultado da conta que você fez na calculadora. A variável $resultado guarda o valor do cálculo (como 5 + 3 = 8). A função echo imprime o texto "O resultado da operação é: " seguido pelo valor guardado em $resultado.
