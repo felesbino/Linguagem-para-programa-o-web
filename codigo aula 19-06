@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LETRADOS</title>
+    <style>
+        /* Define o estilo básico para o corpo da página */
+        body {
+            font-family: Courier;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Fundo da página em um tom cinza claro */
+            color: #333; /* Cor do texto em um tom cinza escuro */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Estilo para o cabeçalho da página */
+        header {
+            background-color: #87cefa; /* Fundo azul claro */
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Estilo para o título no cabeçalho */
+        header h1 {
+            color: #ffffff; /* Cor do título branco */
+        }
+
+        /* Estilo para a barra de navegação */
+        nav {
+            background-color: #ffebcd; /* Fundo bege claro */
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Estilo para os links na barra de navegação */
+        nav a {
+            color: #4682b4; /* Texto azul médio */
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Estilo para os links na barra de navegação ao passar o mouse */
+        nav a:hover {
+            background-color: #e0ffff; /* Fundo azul claro ao passar o mouse */
+            color: #2e8b57; /* Texto verde ao passar o mouse */
+        }
+
+        /* Estilo para a seção principal */
+        main {
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Estilo para o rodapé */
+        footer {
+            background-color: #87cefa; /* Fundo azul claro */
+            color: #ffffff; /* Texto branco */
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Estilo para a seção de destaques */
+        .highlight {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .highlight div {
+            text-align: center;
+            flex: 1 1 calc(25% - 40px);
+            box-sizing: border-box;
+        }
+
+        .highlight img {
+            max-width: 100%; /* Aumenta o tamanho máximo das imagens */
+            height: auto;
+        }
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Título principal do site -->
+        <h1>LETRADOS</h1>
+    </header>
+
+    <nav>
+        <!-- Links de navegação -->
+        <a href="#">Livros</a>
+        <a href="#">Resumos</a>
+        <a href="#">Língua e Linguagem</a>
+        <a href="#">Cultura</a>
+        <a href="#">Últimas Notícias das Letras</a>
+    </nav>
+
+    <div class="content">
+        <section id="destaque">
+            <!-- Título da seção de destaques -->
+            <h2>DESTAQUE</h2>
+            <div class="highlight">
+                <!-- Primeiro destaque -->
+                <div>
+                    <img src="C:\Users\Pedro\Desktop\teste\img\modernagranatica.jpg" width="100" height="100" alt="Vedita" />
+                    <p>"Moderna Gramática Portuguesa" Lança 39.ª Edição Atualizada e Ampliada.</p>
+                </div>
+                <!-- Segundo destaque -->
+                <div>
+                    <img src="C:\Users\Pedro\Desktop\teste\img\História concisa da literatura brasileira.jpg" width="200" height="200" alt="Planeta Diamante" />
+                    <p>"História Concisa da Literatura Brasileira" é Revisada e Atualizada pelo Autor.</p>
+                </div>
+                <!-- Terceiro destaque -->
+                <div>
+                    <img src="C:\Users\Pedro\Desktop\teste\img\A literatura portuguesa.jpg" width="200" height="200" alt="Buraco Negro" />
+                    <p>"A Literatura Portuguesa" Explora os Principais Movimentos Literários.</p>
+                </div>
+                <!-- Quarto destaque -->
+                <div>
+                    <img src="C:\Users\Pedro\Desktop\teste\img\Dom Casmurro.jpg" width="200" height="200" alt="Estrela Arcturus" />
+                    <p>"Dom Casmurro": Uma Análise Profunda das Artimanhas do Ciúme.</p>
+                </div>
+            </div>
+        </section>  
+    </div>
+
+    <main>
+        <h2>Bem-vindo ao LETRADOS</h2>
+    </main>
+  
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2024 LETRADOS. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
