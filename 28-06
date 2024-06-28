@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LETRADOS</title>
+    <style>
+        body {
+            font-family: Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #87cefa;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #ffffff;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #ffebcd;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #4682b4;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #e0ffff;
+            color: #2e8b57;
+        }
+
+        main {
+            padding: 20px;
+            flex: 1;
+        }
+
+        footer {
+            background-color: #87cefa;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .highlight {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .highlight div {
+            text-align: center;
+            flex: 1 1 calc(25% - 40px);
+            box-sizing: border-box;
+        }
+
+        .highlight img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .noticia img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .comentario {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LETRADOS</h1>
+    </header>
+
+    <nav>
+        <a href="?page=home">Home</a>
+        <a href="?page=noticias">Notícias</a>
+        <a href="?page=adicionar">Adicionar Notícia</a>
+        <a href="#">Cultura</a>
+        <a href="#">Últimas Notícias</a>
+    </nav>
+
+    <div class="content">
+        <?php
+        function incrementarContador($pagina) {
+            $arquivo = 'contador_' . $pagina . '.txt';
+            
+            if (!file_exists($arquivo)) {
+                file_put_contents($arquivo, '0');
+            }
+
+            $contador = (int) file_get_contents($arquivo);
+            $contador++;
+            file_put_contents($arquivo, $contador);
+
+            return $contador;
+        }
+
+        if (isset($_POST['comentario'])) {
+            $comentario = htmlspecialchars($_POST['comentario']);
+            file_put_contents('comentarios.txt', $comentario . "\n", FILE_APPEND);
+        }
+
+        if (isset($_POST['titulo']) && isset($_POST['texto']) && isset($_POST['url_imagem'])) {
+            $titulo = htmlspecialchars($_POST['titulo']);
+            $texto = htmlspecialchars($_POST['texto']);
+            $url_imagem = htmlspecialchars($_POST['url_imagem']);
+            file_put_contents('noticias.txt', $titulo . ";" . $texto . ";" . $url_imagem . "\n", FILE_APPEND);
+        }
+
+        $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+        $contador = incrementarContador($page);
+
+        if ($page == 'home') {
+            echo '<section id="destaque">
+                <h2>DESTAQUE</h2>
+                <div class="highlight">
+                    <div>
+                        <img src="img\modernagranatica.jpg" width="200" height="200" alt="Vedita" />
+                        <p>"Moderna Gramática Portuguesa" Lança 39.ª Edição Atualizada e Ampliada.</p>
+                    </div>
+                    <div>
+                        <img src="img\História concisa da literatura brasileira.jpg" width="250" height="200" alt="Planeta Diamante" />
+                        <p>"História Concisa da Literatura Brasileira" é Revisada e Atualizada pelo Autor.</p>
+                    </div>
+                    <div>
+                        <img src="img\A literatura portuguesa.jpg" width="200" height="200" alt="Buraco Negro" />
+                        <p>"A Literatura Portuguesa" Explora os Principais Movimentos Literários.</p>
+                    </div>
+                    <div>
+                        <img src="img\Dom Casmurro.jpg" width="200" height="200" alt="Estrela Arcturus" />
+                        <p>"Dom Casmurro": Uma Análise Profunda das Artimanhas do Ciúme.</p>
+                    </div>
+                </div>
+            </section>';
+
+            echo '<section id="comentarios">
+                <h2>Comentários</h2>
+                <form action="" method="post">
+                    <textarea name="comentario" rows="4" cols="50" placeholder="Deixe seu comentário aqui"></textarea><br>
+                    <input type="submit" value="Enviar">
+                </form>
+                <div id="comentarios-lista">';
+
+            if (file_exists('comentarios.txt')) {
+                $comentarios = file('comentarios.txt', FILE_IGNORE_NEW_LINES);
+                foreach ($comentarios as $comentario) {
+                    echo '<p class="comentario">' . htmlspecialchars($comentario) . '</p>';
+                }
+            }
+
+            echo '</div>
+            </section>';
+
+        } elseif ($page == 'noticias') {
+            echo '<section id="noticias">
+                <h2>Últimas Notícias</h2>';
+
+            if (file_exists('noticias.txt')) {
+                $noticias = file('noticias.txt', FILE_IGNORE_NEW_LINES);
+                foreach ($noticias as $noticia) {
+                    list($titulo, $texto, $url_imagem) = explode(';', $noticia);
+                    echo '<div class="noticia">';
+                    echo '<h3>' . htmlspecialchars($titulo) . '</h3>';
+                    echo '<img src="' . htmlspecialchars($url_imagem) . '" alt="' . htmlspecialchars($titulo) . '">';
+                    echo '<p>' . nl2br(htmlspecialchars($texto)) . '</p>';
+                    echo '</div>';
+                }
+            }
+
+            echo '</section>';
+
+        } elseif ($page == 'adicionar') {
+            echo '<section id="adicionar-noticia">
+                <h2>Nova Notícia</h2>
+                <form action="" method="post">
+                    <label for="titulo">Título:</label><br>
+                    <input type="text" id="titulo" name="titulo" required><br><br>
+                    <label for="texto">Texto da Notícia:</label><br>
+                    <textarea id="texto" name="texto" rows="4" cols="50" required></textarea><br><br>
+                    <label for="url_imagem">URL da Imagem:</label><br>
+                    <input type="url" id="url_imagem" name="url_imagem" required><br><br>
+                    <input type="submit" value="Enviar">
+                </form>
+            </section>';
+        }
+        ?>
+    </div>
+
+    <footer>
+        <p>© 2024 LETRADOS. Todos os direitos reservados.</p>
+        <p>Contato: contato@letrados.com.br</p>
+        <p>Visitas desta página: <?php echo $contador; ?></p>
+    </footer>
+</body>
+</html>
